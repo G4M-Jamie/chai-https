@@ -1,0 +1,26 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":sound: AV API suite result: $JOB_STATUS"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "View all results",
+                        "emoji": true
+                    },
+                    "url": "${{ env.URL }}"
+                }
+            ]
+        }
+    ]
+}
+
