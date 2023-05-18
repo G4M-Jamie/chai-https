@@ -29,6 +29,6 @@ jobs:
         with:
           channel: "#wdio-messaging-test" #wdio-messaging-test
           status: ${{ job.status }}
-          payload-file-path: ".github/slack-messaging/slack-payload.json"
+          file: ".github/slack-messaging/slack-payload.json"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}  
