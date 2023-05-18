@@ -29,11 +29,10 @@ jobs:
       - name: Notify on Slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          channel: "C058GP7SQA0"
+          channel-id: "C058GP7SQA0"
           payload-file-path: ".github/slack-messaging/slack-payload.json"
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}
 
 
 
