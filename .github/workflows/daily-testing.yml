@@ -25,10 +25,15 @@ jobs:
           name: Test Report
           path: ./test-results.xml
       - name: Notify on Slack
-        uses: act10ns/slack@v1
+        uses: slackapi/slack-github-action@v1.24.0
         with:
-          channel: "#wdio-messaging-test" #wdio-messaging-test
+          channel: "C0588A9DJQN"
           status: ${{ job.status }}
-          file: ".github/slack-messaging/slack-payload.json"
+          payload-file-path: ".github/slack-messaging/slack-payload.json"
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}  
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+
+
+  
