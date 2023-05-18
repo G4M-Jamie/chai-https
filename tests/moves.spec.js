@@ -6,7 +6,7 @@ describe("/moves", function () {
 	it("should return a list of moves", async function () {
 		const data = await makeRequest("/move?limit=20");
 		expect(data.results).to.be.an("array");
-		expect(data.results).to.have.lengthOf.at.least(1);
+		expect(data.results).to.have.lengthOf.at.least(5);
 	});
 
 	it("should return a single move", async function () {
