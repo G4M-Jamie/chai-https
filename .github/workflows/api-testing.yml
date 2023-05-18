@@ -5,6 +5,10 @@ name: API Testing Workflow
 jobs:
   test-runner:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        run: ["g4m", "av"]
     env:
       API_URL: 'https://pokeapi.co/api/v2'
     steps:
@@ -35,6 +39,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: "C058GP7SQA0"
-          payload-file-path: ".github/slack-messaging/slack-payload.json"
+          payload-file-path: ".github/slack-messaging/slack-payload-${{matrix.run}}.json"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}
