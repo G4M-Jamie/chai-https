@@ -4,7 +4,7 @@
             "type": "section",
             "text": {
                 "type": "plain_text",
-                "text": ":sound: AV API suite result: $JOB_STATUS"
+                "text": ":sound: AV API suite result: *$JOB_STATUS*"
             }
         },
         {
@@ -14,7 +14,7 @@
                     "type": "button",
                     "text": {
                         "type": "plain_text",
-                        "text": "View all results",
+                        "text": "View Results",
                         "emoji": true
                     },
                     "url": "${{ env.URL }}"
