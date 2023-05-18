@@ -17,9 +17,10 @@
                         "text": "View all results",
                         "emoji": true
                     },
-                    "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    "url": "https://www.google.co.uk"
                 }
             ]
         }
     ]
 }
+
