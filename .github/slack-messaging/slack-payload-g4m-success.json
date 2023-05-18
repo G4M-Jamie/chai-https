@@ -4,7 +4,23 @@
             "type": "section",
             "text": {
                 "type": "plain_text",
-                "text": ":gear: Gear4music API test suite has Passed :white_tick: :tada:",
+                "text": ":gear: Gear4music API test suite has Passed :tada:",
+                "emoji": true
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":large_green_circle: 16 Tests Passed",
+                "emoji": true
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":red_circle: 0 Failures",
                 "emoji": true
             }
         },
