@@ -35,10 +35,10 @@ jobs:
       - name: Set job report variables
         run: |
           echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
-          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}.json"
+          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}-job.status.json"
 
           echo "URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_ENV
-          sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}.json"
+          sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}-job.status.json"
 
           echo "MATRIX_RUN=${{ matrix.run }}" >> $GITHUB_ENV
 
