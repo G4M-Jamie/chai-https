@@ -25,7 +25,7 @@ jobs:
           name: Test Report
           path: ./test-results.xml
       - name: Notify on Slack
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: act10ns/slack@v1
         with:
           channel-id: "C058GP7SQA0" #wdio-messaging-test
           status: ${{ job.status }}
