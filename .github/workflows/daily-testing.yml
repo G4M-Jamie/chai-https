@@ -27,7 +27,7 @@ jobs:
       - name: Notify on Slack
         uses: act10ns/slack@v1
         with:
-          channel-id: "C058GP7SQA0" #wdio-messaging-test
+          channel: "#wdio-messaging-test" #wdio-messaging-test
           status: ${{ job.status }}
           payload-file-path: ".github/slack-messaging/slack-payload.json"
         env:
