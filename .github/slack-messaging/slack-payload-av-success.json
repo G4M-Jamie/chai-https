@@ -3,8 +3,9 @@
         {
             "type": "section",
             "text": {
-                "type": "plain_text",
-                "text": ":sound: AV API test suite has Passed :white_tick:"
+                "type": "mrkdwn",
+                "text": ":sound: AV API test suite has Passed :white_tick: :tada:",
+                "emoji": true
             }
         },
         {
@@ -13,8 +14,8 @@
                 {
                     "type": "button",
                     "text": {
-                        "type": "plain_text",
-                        "text": "View Results",
+                        "type": "mrkdwn",
+                        "text": "View AV Results",
                         "emoji": true
                     },
                     "url": "${{ env.URL }}"
