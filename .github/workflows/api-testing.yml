@@ -35,6 +35,7 @@ jobs:
           echo "URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_ENV
           sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload.json"
 
+          sed "s/\${{ env.URL }}/$URL/g" .github/slack-messaging/slack-payload-${{ matrix.run }}.json > slack-payload.json
       - name: Notify on Slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
