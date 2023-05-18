@@ -6,6 +6,20 @@
                 "type": "plain_text",
                 "text": ":gear: API suite result: $JOB_STATUS"
             }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "View all results",
+                        "emoji": true
+                    },
+                    "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                }
+            ]
         }
     ]
 }
