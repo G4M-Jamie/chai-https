@@ -30,10 +30,7 @@ jobs:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel: "C058GP7SQA0"
-          status: ${{ job.status }}
-          color: 'danger'
-          success_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build completed successfully'
-          #payload-file-path: ".github/slack-messaging/slack-payload.json"
+          payload-file-path: ".github/slack-messaging/slack-payload.json"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
