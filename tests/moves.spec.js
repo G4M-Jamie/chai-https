@@ -13,7 +13,7 @@ describe("/moves", function () {
 		const data = await makeRequest("/move/1");
 		expect(data).to.be.an("object");
 		expect(data.name).to.equal("pound");
-		expect(data.power).to.equal(40);
+		expect(data.power).to.equal(80);
 		expect(data.type.name).to.equal("normal");
 	});
 });

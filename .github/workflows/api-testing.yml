@@ -29,13 +29,8 @@ jobs:
           path: ./test-results.xml
       - name: Set job report variables
         run: |
-          if [ ${{ job.status }} == 'success' ]; then
-            echo "JOB_STATUS=Passed" >> $GITHUB_ENV
-          else
-            echo "JOB_STATUS=Failed" >> $GITHUB_ENV
-          fi
-
-          sed -i "s/\$JOB_STATUS/${{ env.JOB_STATUS }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}.json"
+          echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
+          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}.json"
 
           echo "URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_ENV
           sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload-${{ matrix.run }}.json"
