@@ -4,7 +4,7 @@
             "type": "section",
             "text": {
                 "type": "plain_text",
-                "text": ":gear: Gear4music API suite result: $JOB_STATUS"
+                "text": ":sound: AV API test suite has Passed :white_tick:"
             }
         },
         {

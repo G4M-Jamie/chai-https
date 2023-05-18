@@ -14,19 +14,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install dependencies
         run: npm ci
+
       - name: Run ESLint
         run: npx eslint --quiet
+
       - name: Run tests and generate report
         env:
           TEST_REPORT_PATH: report.xml
         run: npm test -- --reporter=mocha-junit-reporter
+
       - name: Upload test report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: Test Report From Runner
           path: ./test-results.xml
+
       - name: Set job report variables
         run: |
           echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
@@ -41,6 +46,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: "C058GP7SQA0"
-          payload-file-path: ".github/slack-messaging/slack-payload-${{ env.MATRIX_RUN }}.json"
+          payload-file-path: ".github/slack-messaging/slack-payload-${{ env.MATRIX_RUN }}-${{ job.status }}.json"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}
