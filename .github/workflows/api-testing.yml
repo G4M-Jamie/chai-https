@@ -23,3 +23,14 @@ jobs:
         with:
           name: Test Report From Runner
           path: ./test-results.xml
+      - name: Set job status environment variable
+        run: echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
+      - name: Replace job status placeholder
+        run: sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload.json"
+      - name: Notify on Slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C058GP7SQA0"
+          payload-file-path: ".github/slack-messaging/slack-payload.json"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}
