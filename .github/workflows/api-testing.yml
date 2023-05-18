@@ -23,9 +23,10 @@ jobs:
         with:
           name: Test Report From Runner
           path: ./test-results.xml
-      - name: Set job status environment variable
-        run: echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
-        run: sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload.json"
+      - name: Set job report variables
+        run: |
+          echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
+          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload.json"
       - name: Notify on Slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
