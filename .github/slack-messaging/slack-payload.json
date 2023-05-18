@@ -17,7 +17,7 @@
                         "text": "View all results",
                         "emoji": true
                     },
-                    "url": "$URL"
+                    "url": "${URL}"
                 }
             ]
         }
