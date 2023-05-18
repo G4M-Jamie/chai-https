@@ -1,0 +1,18 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":gear: API suite result: ${{ github.event.repository.name }}"
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":gear: API suite result: ${{ job.status }}"
+            }
+        }
+    ]
+}
