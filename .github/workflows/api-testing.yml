@@ -29,13 +29,13 @@ jobs:
           path: ./test-results.xml
       - name: Set job report variables
         run: |
+          echo "MATRIX_RUN=${{ matrix.run }}" >> $GITHUB_ENV
+
           echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
-          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload.json"
+          sed -i "s/\$JOB_STATUS/${{ job.status }}/g" ".github/slack-messaging/slack-payload-${{ env.MATRIX_RUN }}.json"
 
           echo "URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> $GITHUB_ENV
-          sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload.json"
-
-          echo "MATRIX_RUN=${{ matrix.run }}" >> $GITHUB_ENV
+          sed -i "s/\$URL/${{ env.URL }}/g" ".github/slack-messaging/slack-payload-${{ env.MATRIX_RUN }}.json"
 
       - name: Notify on Slack
         uses: slackapi/slack-github-action@v1.24.0
