@@ -24,11 +24,13 @@ jobs:
         with:
           name: Test Report
           path: ./test-results.xml
+      - name: Set job status environment variable
+        run: echo "JOB_STATUS=${{ job.status }}" >> $GITHUB_ENV
       - name: Notify on Slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel: "C058GP7SQA0"
-          job-status: ${{ job.status }}
+          status: ${{ job.status }}
           color: 'danger'
           success_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build completed successfully'
           #payload-file-path: ".github/slack-messaging/slack-payload.json"
